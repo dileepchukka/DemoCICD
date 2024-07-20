@@ -29,6 +29,6 @@ jobs:
       if: always()
       run: |
         curl -X POST \
-          https://dileepchukka22@gmail.com/send-email \
+         https://api.sendgrid.com/v3/mail/send \
           -H 'Content-Type: application/json' \
-          -d '{"to": "recipient@example.com", "subject": "Playwright Tests - ${{ github.event.pull_request.title }}", "body": "The Playwright tests have completed. Please review the results."}'
+          -d '{"to": "dileepchukka23@gmail.com", "subject": "Playwright Tests - ${{ github.event.pull_request.title }}", "body": "The Playwright tests have completed. Please review the results."}'
