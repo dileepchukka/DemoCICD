@@ -27,7 +27,7 @@ jobs:
         retention-days: 30
     - name: Send email notification
       if: always()
-      uses: github/mailer@v1
+      uses: softprops/github-send-email@v1
       with:
         to: 'dileepchukka22@gmail.com'
         subject: 'Playwright Tests - ${{ github.event.pull_request.title }}'
