@@ -25,10 +25,9 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
-    - name: Send email notification
+   - name: Send email notification
       if: always()
       run: |
-        curl -X POST \
-         https://api.sendgrid.com/v3/mail/send \
-          -H 'Content-Type: application/json' \
-          -d '{"to": "dileepchukka23@gmail.com", "subject": "Playwright Tests - ${{ github.event.pull_request.title }}", "body": "The Playwright tests have completed. Please review the results."}'
+        echo "Subject: Playwright Tests - ${{ github.event.pull_request.title }}" > email.txt
+        echo "The Playwright tests have completed. Please review the results." >> email.txt
+        msmtp --from=dileep.chukka@pal.tech --to=dileepchukka23@gmail.com < email.txt
